@@ -5,3 +5,17 @@ padding: 0;
 box-sizing: border-box;
 font-family: Inter, sans-serif;
 }
+
+body{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.header{
+  background-color: rgba(237, 173, 199, 1)
+  display:flex;
+  align-items: ;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
