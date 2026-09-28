@@ -13,9 +13,9 @@ body{
   min-height: 100dvh;
 }
 .header{
-  background-color: rgba(237, 173, 199, 1)
+  background-color: rgba(237, 173, 199, 1);
   display:flex;
-  align-items: ;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
 }
