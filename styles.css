@@ -1,21 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: Inter, sans-serif;
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  min-height: 100dvh;
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #fff0f5, #ffffff);
+  color: #70475b;
+  line-height: 1.7;
+  padding: 20px;
 }
-.header{
-  background-color: rgba(237, 173, 199, 1);
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
+
+/* Encabezado */
+.header {
+  background: #ffffff;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px #e9a9c555;
+  border: 2px solid #ffd6e7;
+  margin-bottom: 30px;
+}
+
+/* Título rosado */
+.title {
+  color: #f06292;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #f8c8dc;
+  margin-bottom: 15px;
+}
+
+/* Menú de navegación */
+nav {
+  margin: 15px 0;
+}
+
+nav a {
+  display: inline-block;
+  color: #e75480;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 8px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #f8bbd0;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Botones de idioma */
+.languages {
+  margin-top: 10px;
+}
+
+.lang-button {
+  background: #f48fb1;
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lang-button:hover {
+  background: #ec407a;
+  transform: scale(1.08);
+}
+
+/* Secciones de contenido */
+.section {
+  background: #ffffff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  border-left: 6px solid #f48fb1;
+  box-shadow: 0 4px 15px #e9a9c533;
+  transition: 0.3s;
+}
+
+.section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px #e9a9c555;
+}
+
+/* Títulos de las secciones */
+.section h2 {
+  color: #ec407a;
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #fce4ec;
+  padding-bottom: 8px;
+}
+
+/* Párrafos */
+.section p {
+  font-size: 16px;
+  color: #795568;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* Lista del proyecto de vida */
+.section ul {
+  padding-left: 25px;
+}
+
+.section li {
+  margin: 10px 0;
+  color: #a64d79;
+}
+
+.section li::marker {
+  color: #f06292;
+}
+
+/* Diseño para celulares */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 5px auto;
+  }
+
+  .section {
+    padding: 18px;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
+  }
 }
