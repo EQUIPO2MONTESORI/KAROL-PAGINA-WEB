@@ -1,59 +1,63 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karol Mora!</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
 
-<body>
-  <header class="header">
-    <h1 class="title" data-label="titulo">¡Página de Karol!</h1>
+const traducciones = {
+  es: {
+    titulo: "¡Página de Karol!",
+    navSobreMi: "Sobre mí",
+    navProyecto: "Mi proyecto de vida",
+    sobreMi: "Sobre mí",
+    descripcion: "Soy Karol, estoy en grado décimo. Me gusta jugar vóley, escuchar música y jugar Free Fire con Alex en dúo, haciendo unas 1500 partidas para subir a Gran Maestro. Me gusta comer pasta, ver frutinovelas y la clase del profesor Alex porque no hacemos nada. Me gusta mucho ir a entrenar y pasar tiempo con mis yapopois Sofía y Alex. No me gusta que Alex me muerda. ¡FIN!",
+    tituloProyecto: "Mi proyecto de vida",
+    descripcionProyecto: "En el futuro me veo siendo administradora de empresas con un buen sueldo.",
+    meta1: "Graduarme del colegio.",
+    meta2: "Graduarme como profesional.",
+    meta3: "Tener un sueldo y una vida estable."
+  },
 
-    <nav>
-      <a href="#about-me" data-label="navSobreMi">Sobre mí</a>
-      <a href="#proyecto-vida" data-label="navProyecto">Mi proyecto de vida</a>
-    </nav>
+  en: {
+    titulo: "Karol's Page!",
+    navSobreMi: "About Me",
+    navProyecto: "My Life Plan",
+    sobreMi: "About Me",
+    descripcion: "I'm Karol, and I'm in tenth grade. I like playing volleyball, listening to music, and playing Free Fire in duo mode with Alex. We play around 1,500 matches to reach Grandmaster. I like eating pasta, watching drama series, and attending Professor Alex's class because we don't do anything. I really enjoy going to training and spending time with my yapopois, Sofia and Alex. I don't like it when Alex bites me. THE END!",
+    tituloProyecto: "My Life Plan",
+    descripcionProyecto: "In the future, I see myself working as a business administrator with a good salary.",
+    meta1: "Graduate from high school.",
+    meta2: "Graduate from university.",
+    meta3: "Have a good salary and a stable life."
+  }
+};
 
-    <div class="languages">
-      <button class="lang-button" id="btn-es" type="button"
-        aria-pressed="true">ES</button>
-      <button class="lang-button" id="btn-en" type="button"
-        aria-pressed="false">EN</button>
-    </div>
-  </header>
+function cambiarIdioma(idioma) {
+  const textos = traducciones[idioma];
 
-  <main>
-    <section class="section" id="about-me">
-      <h2 data-label="sobreMi">Sobre mí</h2>
-      <p data-label="descripcion">
-        Soy Karol, estoy en grado décimo. Me gusta jugar vóley,
-        escuchar música y jugar Free Fire con Alex en dúo,
-        haciendo unas 1500 partidas para subir a Gran Maestro.
-        Me gusta comer pasta, ver frutinovelas y la clase del
-        profesor Alex porque no hacemos nada. Me gusta mucho ir
-        a entrenar y pasar tiempo con mis yapopois Sofía y Alex.
-        No me gusta que Alex me muerda. ¡FIN!
-      </p>
-    </section>
+  document.documentElement.lang = idioma;
 
-    <section id="proyecto-vida" class="section">
-      <h2 data-label="tituloProyecto">Mi proyecto de vida</h2>
+  document.querySelectorAll("[data-label]").forEach(elemento => {
+    const etiqueta = elemento.dataset.label;
 
-      <p data-label="descripcionProyecto">
-        En el futuro me veo siendo administradora de empresas
-        con un buen sueldo.
-      </p>
+    if (textos[etiqueta]) {
+      elemento.textContent = textos[etiqueta];
+    }
+  });
 
-      <ul>
-        <li data-label="meta1">Graduarme del colegio.</li>
-        <li data-label="meta2">Graduarme como profesional.</li>
-        <li data-label="meta3">Tener un sueldo y una vida estable.</li>
-      </ul>
-    </section>
-  </main>
+  document.getElementById("btn-es").setAttribute(
+    "aria-pressed",
+    idioma === "es"
+  );
 
-  <script src="script.js"></script>
-</body>
-</html>
+  document.getElementById("btn-en").setAttribute(
+    "aria-pressed",
+    idioma === "en"
+  );
+}
+
+document.getElementById("btn-es").addEventListener("click", () => {
+  cambiarIdioma("es");
+});
+
+document.getElementById("btn-en").addEventListener("click", () => {
+  cambiarIdioma("en");
+});
+
+// Mostrar la página en español al comenzar
+cambiarIdioma("es");
